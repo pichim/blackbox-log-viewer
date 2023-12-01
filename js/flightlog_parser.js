@@ -353,6 +353,17 @@ var FlightLogParser = function(logData) {
             throttle_boost: null,                    // throttle boost
             throttle_boost_cutoff: null,
             thrust_linear: null,
+            tpa_rate_lower: null,
+            tpa_breakpoint_lower: null,
+            tpa_breakpoint_lower_fade: null,
+            chirp_lag_freq_hz: null,
+            chirp_lead_freq_hz: null,
+            chirp_amplitude_roll: null,
+            chirp_amplitude_pitch: null,
+            chirp_amplitude_yaw: null,
+            chirp_frequency_start_deci_hz: null,
+            chirp_frequency_end_deci_hz: null,
+            chirp_time_seconds: null,
             unknownHeaders : []                     // Unknown Extra Headers
         },
 
@@ -435,6 +446,17 @@ var FlightLogParser = function(logData) {
             yaw_accel_limit           : "yawRateAccelLimit",
             yaw_lowpass_hz            : "yaw_lpf_hz",
             thrust_linear             : "thrust_linear",
+            tpa_rate_lower            : "tpa_rate_lower",
+            tpa_breakpoint_lower      : "tpa_breakpoint_lower",
+            tpa_breakpoint_lower_fade : "tpa_breakpoint_lower_fade",
+            chirp_lag_freq_hz         : "chirp_lag_freq_hz",
+            chirp_lead_freq_hz        : "chirp_lead_freq_hz",
+            chirp_amplitude_roll      : "chirp_amplitude_roll",
+            chirp_amplitude_pitch     : "chirp_amplitude_pitch",
+            chirp_amplitude_yaw       : "chirp_amplitude_yaw",
+            chirp_frequency_start_deci_hz : "chirp_frequency_start_deci_hz",
+            chirp_frequency_end_deci_hz : "chirp_frequency_end_deci_hz",
+            chirp_time_seconds        : "chirp_time_seconds",
         },
 
         frameTypes,
@@ -848,6 +870,17 @@ var FlightLogParser = function(logData) {
             case "gyro_lowpass_dyn_expo":
             case "dterm_lpf_dyn_expo":
             case "thrust_linear":
+            case "tpa_rate_lower":
+            case "tpa_breakpoint_lower":
+            case "tpa_breakpoint_lower_fade":
+            case "chirp_lag_freq_hz":
+            case "chirp_lead_freq_hz":
+            case "chirp_amplitude_roll":
+            case "chirp_amplitude_pitch":
+            case "chirp_amplitude_yaw":
+            case "chirp_frequency_start_deci_hz":
+            case "chirp_frequency_end_deci_hz":
+            case "chirp_time_seconds":
             case "dterm_lpf_dyn_hz":
                 that.sysConfig[fieldName] = parseCommaSeparatedString(fieldValue);
             break;
